@@ -1,28 +1,46 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <div class="container">
+            <div class="row margen">
+                <div v-if="vistas" class="col-sm-6 offset-sm-3">
+                  <LoginUser />
+                  <button type="button" class="btn btn-success" @click="registro()">Register</button>
+                </div>
+                <div v-else class="col-sm-6 offset-sm-3">
+                  <UserRegister />
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import LoginUser from './components/LoginUser.vue'
+import UserRegister from './components/UserRegister.vue';
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    name: 'app',
+
+    data() {
+      return{vistas: true}
+    },
+
+    components: {
+    LoginUser,
+    UserRegister
+},
+
+  methods: {
+
+    registro() {
+        this.vistas = false;
+    }
+            
   }
-}
+
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .margen{
+    margin-top: 10rem;
+  }
 </style>
