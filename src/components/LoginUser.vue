@@ -45,8 +45,8 @@ export default {
 
         userlogin() {
                         this.users = JSON.parse(localStorage.getItem("users"));
-                        console.log(this.users);
-                        if (this.users.pass == "123") {
+                        console.log(this.users[0].pass);
+                        if (this.users[0].pass == "123") {
                             alert("message");
                         }
                         else{
